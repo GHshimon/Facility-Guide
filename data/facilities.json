@@ -1,0 +1,268 @@
+{
+  "facilities": [
+    {
+      "id": 1,
+      "name": "さくら苑",
+      "type": "特別養護老人ホーム",
+      "type_code": "tokuyou",
+      "area": "鹿児島市",
+      "address": "鹿児島市吉野町1234",
+      "tel": "099-xxx-0001",
+      "fax": "099-xxx-0002",
+      "care_levels": [3, 4, 5],
+      "room_types": ["個室", "多床室"],
+      "medical_care": {
+        "insulin": "○",
+        "gastrostomy": "○",
+        "tube_feeding": "○",
+        "suction": "○",
+        "balloon": "○",
+        "pressure_sore": "要相談",
+        "dialysis": "×"
+      },
+      "economics": {
+        "seikohogo": true,
+        "limit_stages": [1, 2, 3, 4],
+        "monthly_fee_note": "第1段階：約3万円、第2段階：約4万円"
+      },
+      "insider_info": {
+        "flexibility": "高",
+        "vacancy_trend": "あり",
+        "meeting_frequency": "週1回",
+        "strengths": ["認知症対応", "看取り対応"],
+        "notes": "相談員の対応が丁寧。BPSDのある方も受け入れ実績あり。"
+      }
+    },
+    {
+      "id": 2,
+      "name": "霧島老人ホーム",
+      "type": "特別養護老人ホーム",
+      "type_code": "tokuyou",
+      "area": "霧島市",
+      "address": "霧島市国分中央5678",
+      "tel": "0995-xxx-0003",
+      "fax": "0995-xxx-0004",
+      "care_levels": [3, 4, 5],
+      "room_types": ["個室"],
+      "medical_care": {
+        "insulin": "○",
+        "gastrostomy": "要相談",
+        "tube_feeding": "要相談",
+        "suction": "○",
+        "balloon": "○",
+        "pressure_sore": "○",
+        "dialysis": "×"
+      },
+      "economics": {
+        "seikohogo": true,
+        "limit_stages": [1, 2, 3, 4],
+        "monthly_fee_note": "第1段階：約3万円"
+      },
+      "insider_info": {
+        "flexibility": "中",
+        "vacancy_trend": "やや少ない",
+        "meeting_frequency": "月2回",
+        "strengths": ["看取り対応"],
+        "notes": "判定まで時間がかかることがある。早めの打診推奨。"
+      }
+    },
+    {
+      "id": 3,
+      "name": "姶良リハビリ老健",
+      "type": "介護老人保健施設",
+      "type_code": "roken",
+      "area": "姶良市",
+      "address": "姶良市加治木町9012",
+      "tel": "0995-xxx-0005",
+      "fax": "0995-xxx-0006",
+      "care_levels": [1, 2, 3, 4, 5],
+      "room_types": ["個室", "多床室"],
+      "medical_care": {
+        "insulin": "○",
+        "gastrostomy": "○",
+        "tube_feeding": "○",
+        "suction": "○",
+        "balloon": "○",
+        "pressure_sore": "○",
+        "dialysis": "×"
+      },
+      "economics": {
+        "seikohogo": false,
+        "limit_stages": [2, 3, 4],
+        "monthly_fee_note": "第2段階から対応可"
+      },
+      "insider_info": {
+        "flexibility": "高",
+        "vacancy_trend": "あり",
+        "meeting_frequency": "週2回",
+        "strengths": ["リハビリ", "在宅復帰支援", "医療ケア"],
+        "notes": "医療依存度が高い方も積極的に受け入れ。ただし在宅復帰が前提。"
+      }
+    },
+    {
+      "id": 4,
+      "name": "南薩介護医療院",
+      "type": "介護医療院",
+      "type_code": "iryoin",
+      "area": "南薩",
+      "address": "南さつま市加世田1357",
+      "tel": "0993-xxx-0007",
+      "fax": "0993-xxx-0008",
+      "care_levels": [3, 4, 5],
+      "room_types": ["個室", "多床室"],
+      "medical_care": {
+        "insulin": "○",
+        "gastrostomy": "○",
+        "tube_feeding": "○",
+        "suction": "○",
+        "balloon": "○",
+        "pressure_sore": "○",
+        "dialysis": "要相談"
+      },
+      "economics": {
+        "seikohogo": true,
+        "limit_stages": [1, 2, 3, 4],
+        "monthly_fee_note": "第1段階：約3.5万円"
+      },
+      "insider_info": {
+        "flexibility": "高",
+        "vacancy_trend": "あり",
+        "meeting_frequency": "週1回",
+        "strengths": ["医療ケア全般", "透析", "難病対応", "看取り"],
+        "notes": "医師常駐。医療依存度の高い方の長期受け入れが得意。"
+      }
+    },
+    {
+      "id": 5,
+      "name": "鹿児島サービス付き高齢者住宅 あおぞら",
+      "type": "サービス付き高齢者向け住宅",
+      "type_code": "sahoju",
+      "area": "鹿児島市",
+      "address": "鹿児島市与次郎2468",
+      "tel": "099-xxx-0009",
+      "fax": "099-xxx-0010",
+      "care_levels": [1, 2, 3, 4],
+      "room_types": ["個室"],
+      "medical_care": {
+        "insulin": "○",
+        "gastrostomy": "×",
+        "tube_feeding": "×",
+        "suction": "要相談",
+        "balloon": "○",
+        "pressure_sore": "要相談",
+        "dialysis": "×"
+      },
+      "economics": {
+        "seikohogo": false,
+        "limit_stages": [3, 4],
+        "monthly_fee_note": "月額15〜20万円程度（全込み）"
+      },
+      "insider_info": {
+        "flexibility": "中",
+        "vacancy_trend": "あり",
+        "meeting_frequency": "随時",
+        "strengths": ["自立度高め", "プライバシー重視"],
+        "notes": "賃貸契約のため生保不可。認知症軽度まで対応。"
+      }
+    },
+    {
+      "id": 6,
+      "name": "大隅特養 ひまわりの里",
+      "type": "特別養護老人ホーム",
+      "type_code": "tokuyou",
+      "area": "大隅",
+      "address": "鹿屋市寿町3579",
+      "tel": "0994-xxx-0011",
+      "fax": "0994-xxx-0012",
+      "care_levels": [3, 4, 5],
+      "room_types": ["多床室"],
+      "medical_care": {
+        "insulin": "○",
+        "gastrostomy": "○",
+        "tube_feeding": "○",
+        "suction": "要相談",
+        "balloon": "○",
+        "pressure_sore": "要相談",
+        "dialysis": "×"
+      },
+      "economics": {
+        "seikohogo": true,
+        "limit_stages": [1, 2, 3, 4],
+        "monthly_fee_note": "第1段階：約2.5万円"
+      },
+      "insider_info": {
+        "flexibility": "高",
+        "vacancy_trend": "あり",
+        "meeting_frequency": "月2回",
+        "strengths": ["看取り対応", "生保対応実績豊富"],
+        "notes": "地域密着型。エリア外の方でも相談に乗ってくれる。"
+      }
+    },
+    {
+      "id": 7,
+      "name": "北薩ケアホーム",
+      "type": "特定施設入居者生活介護",
+      "type_code": "tokuteishisetsu",
+      "area": "北薩",
+      "address": "薩摩川内市隈之城町2468",
+      "tel": "0996-xxx-0013",
+      "fax": "0996-xxx-0014",
+      "care_levels": [2, 3, 4, 5],
+      "room_types": ["個室"],
+      "medical_care": {
+        "insulin": "○",
+        "gastrostomy": "要相談",
+        "tube_feeding": "×",
+        "suction": "×",
+        "balloon": "○",
+        "pressure_sore": "要相談",
+        "dialysis": "×"
+      },
+      "economics": {
+        "seikohogo": false,
+        "limit_stages": [3, 4],
+        "monthly_fee_note": "月額16〜22万円"
+      },
+      "insider_info": {
+        "flexibility": "低",
+        "vacancy_trend": "やや少ない",
+        "meeting_frequency": "月1回",
+        "strengths": ["個室対応", "家族サービス充実"],
+        "notes": "経済的余裕のある方向け。入居審査がやや厳しい。"
+      }
+    },
+    {
+      "id": 8,
+      "name": "鹿児島市内 老健センター",
+      "type": "介護老人保健施設",
+      "type_code": "roken",
+      "area": "鹿児島市",
+      "address": "鹿児島市和田1-23-4",
+      "tel": "099-xxx-0015",
+      "fax": "099-xxx-0016",
+      "care_levels": [1, 2, 3, 4, 5],
+      "room_types": ["個室", "多床室"],
+      "medical_care": {
+        "insulin": "○",
+        "gastrostomy": "○",
+        "tube_feeding": "○",
+        "suction": "○",
+        "balloon": "○",
+        "pressure_sore": "○",
+        "dialysis": "×"
+      },
+      "economics": {
+        "seikohogo": true,
+        "limit_stages": [1, 2, 3, 4],
+        "monthly_fee_note": "第1段階：約3万円"
+      },
+      "insider_info": {
+        "flexibility": "高",
+        "vacancy_trend": "やや少ない",
+        "meeting_frequency": "週1回",
+        "strengths": ["リハビリ", "医療ケア", "短期集中リハ"],
+        "notes": "在宅復帰率が高く、リハビリ目的での入所に向いている。"
+      }
+    }
+  ]
+}
