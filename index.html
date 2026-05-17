@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -9,23 +9,29 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --primary: #2563eb;
-      --primary-light: #eff6ff;
-      --primary-dark: #1d4ed8;
-      --success: #16a34a;
-      --warning: #d97706;
-      --danger: #dc2626;
-      --gray-50: #f9fafb;
-      --gray-100: #f3f4f6;
-      --gray-200: #e5e7eb;
-      --gray-300: #d1d5db;
-      --gray-400: #9ca3af;
-      --gray-600: #4b5563;
-      --gray-700: #374151;
-      --gray-800: #1f2937;
-      --radius: 12px;
-      --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
-      --shadow-md: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+      --primary: #1e40af;
+      --primary-mid: #2563eb;
+      --primary-light: #dbeafe;
+      --primary-dark: #1e3a8a;
+      --success: #15803d;
+      --success-light: #dcfce7;
+      --warning: #b45309;
+      --warning-light: #fef3c7;
+      --danger: #b91c1c;
+      --danger-light: #fee2e2;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --radius: 14px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+      --shadow: 0 2px 8px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.05);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.1), 0 2px 6px rgba(0,0,0,.06);
     }
 
     body {
@@ -33,85 +39,87 @@
       background: var(--gray-50);
       color: var(--gray-800);
       min-height: 100vh;
+      line-height: 1.6;
     }
 
     /* ── Header ── */
     header {
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-mid) 100%);
       color: #fff;
-      padding: 16px 20px;
+      padding: 18px 20px;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 2px 12px rgba(30,64,175,.3);
     }
-    header h1 { font-size: 18px; font-weight: 700; letter-spacing: .02em; }
-    header p  { font-size: 12px; opacity: .85; margin-top: 2px; }
+    header h1 { font-size: 19px; font-weight: 800; letter-spacing: .02em; }
+    header p  { font-size: 12px; opacity: .8; margin-top: 3px; }
 
     /* ── Layout ── */
-    main { max-width: 720px; margin: 0 auto; padding: 20px 16px 60px; }
-
-    /* ── Step indicator ── */
-    .steps {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 24px;
-    }
-    .step-item {
-      flex: 1;
-      height: 4px;
-      border-radius: 2px;
-      background: var(--gray-200);
-      transition: background .3s;
-    }
-    .step-item.active   { background: var(--primary); }
-    .step-item.done     { background: var(--primary-dark); }
-
-    .step-label {
-      text-align: center;
-      font-size: 13px;
-      color: var(--gray-600);
-      margin-bottom: 16px;
-    }
-    .step-label span { font-weight: 700; color: var(--primary); }
+    main { max-width: 680px; margin: 0 auto; padding: 24px 16px 72px; }
 
     /* ── Card ── */
     .card {
       background: #fff;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 20px;
-      margin-bottom: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      border: 1px solid var(--gray-200);
     }
+
     .card-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--gray-700);
-      margin-bottom: 16px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--gray-800);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--gray-100);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
     .card-title::before {
       content: attr(data-icon);
-      font-size: 18px;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .card-num {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--primary-mid);
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: auto;
     }
 
     /* ── Form elements ── */
-    .field { margin-bottom: 18px; }
-    .field:last-child { margin-bottom: 0; }
+    .field {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .field:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 
     label.field-label {
       display: block;
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 700;
       color: var(--gray-700);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      line-height: 1.4;
     }
-    label.field-label .required {
-      color: var(--danger);
-      margin-left: 4px;
-      font-size: 11px;
+    .required-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      background: var(--danger);
+      color: #fff;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
     }
 
     .radio-group, .checkbox-group {
@@ -124,13 +132,29 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 14px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: 8px;
+      padding: 9px 16px;
+      border: 2px solid var(--gray-200);
+      border-radius: 10px;
       cursor: pointer;
       font-size: 14px;
+      font-weight: 500;
       transition: all .15s;
-      background: #fff;
+      background: var(--gray-50);
+      color: var(--gray-700);
+      user-select: none;
+    }
+    .radio-group label:hover, .checkbox-group label:hover {
+      border-color: var(--primary-mid);
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .care-level-tiers { display: flex; flex-direction: column; gap: 16px; }
+    .care-tier-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gray-600);
+      margin-bottom: 8px;
+      letter-spacing: .02em;
     }
     .radio-group input[type="radio"],
     .checkbox-group input[type="checkbox"] { display: none; }
@@ -138,565 +162,336 @@
     .radio-group label:has(input:checked),
     .checkbox-group label:has(input:checked) {
       background: var(--primary-light);
-      border-color: var(--primary);
-      color: var(--primary);
-      font-weight: 600;
+      border-color: var(--primary-mid);
+      color: var(--primary-dark);
+      font-weight: 700;
+      box-shadow: 0 0 0 1px var(--primary-mid);
     }
 
-    select {
+    select, textarea, input[type="text"] {
       width: 100%;
-      padding: 10px 14px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: 8px;
-      font-size: 14px;
+      padding: 11px 14px;
+      border: 2px solid var(--gray-200);
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: inherit;
       background: #fff;
+      color: var(--gray-800);
+      transition: border-color .15s, box-shadow .15s;
+    }
+    select {
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239ca3af' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
     }
-
-    textarea, input[type="text"] {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: 8px;
-      font-size: 14px;
-      font-family: inherit;
-      resize: vertical;
-    }
+    textarea { resize: vertical; }
     textarea:focus, input[type="text"]:focus, select:focus {
       outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+      border-color: var(--primary-mid);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.15);
     }
 
-    .bpsd-detail { display: none; margin-top: 12px; }
+    .bpsd-detail {
+      display: none;
+      margin-top: 14px;
+      padding: 14px;
+      background: var(--gray-50);
+      border-radius: 10px;
+      border: 1px solid var(--gray-200);
+    }
     .bpsd-detail.show { display: block; }
 
-    /* ── Buttons ── */
+    /* ── Search button ── */
+    .btn-search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, var(--primary-mid) 0%, var(--primary-dark) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 800;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(37,99,235,.4);
+      transition: all .2s;
+      margin-top: 8px;
+      letter-spacing: .02em;
+    }
+    .btn-search:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37,99,235,.45);
+    }
+    .btn-search:active { transform: none; box-shadow: 0 2px 8px rgba(37,99,235,.35); }
+
+    /* ── Generic buttons ── */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 12px 24px;
+      padding: 11px 22px;
       border: none;
-      border-radius: 8px;
-      font-size: 15px;
+      border-radius: 10px;
+      font-size: 14px;
       font-weight: 600;
       font-family: inherit;
       cursor: pointer;
       transition: all .15s;
     }
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      width: 100%;
-    }
+    .btn-primary { background: var(--primary-mid); color: #fff; width: 100%; }
     .btn-primary:hover { background: var(--primary-dark); }
-    .btn-secondary {
-      background: var(--gray-100);
-      color: var(--gray-700);
-    }
+    .btn-secondary { background: var(--gray-100); color: var(--gray-700); border: 1.5px solid var(--gray-200); }
     .btn-secondary:hover { background: var(--gray-200); }
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 1.5px solid var(--primary);
-    }
     .btn-sm { padding: 7px 14px; font-size: 13px; }
-
-    .btn-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 24px;
-    }
+    .btn-group { display: flex; gap: 10px; margin-top: 20px; }
     .btn-group .btn-secondary { flex-shrink: 0; }
     .btn-group .btn-primary { flex: 1; }
 
     /* ── Results ── */
     #results-section { display: none; }
-
-    .results-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-    .results-header h2 { font-size: 16px; font-weight: 700; }
-    .results-count {
-      background: var(--primary);
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-    }
+    .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .results-header h2 { font-size: 17px; font-weight: 800; color: var(--gray-800); }
+    .results-count { background: var(--primary-mid); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; }
 
     /* ── Facility card ── */
     .facility-card {
       background: #fff;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       overflow: hidden;
       border: 1.5px solid var(--gray-200);
-      transition: box-shadow .2s;
+      transition: box-shadow .2s, transform .2s;
     }
-    .facility-card:hover { box-shadow: var(--shadow-md); }
+    .facility-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
 
-    .facility-header {
-      padding: 16px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
+    .facility-header { padding: 18px 16px; display: flex; align-items: flex-start; gap: 14px; }
 
     .score-badge {
-      flex-shrink: 0;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
+      flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800;
     }
-    .score-badge .score-num { font-size: 18px; line-height: 1; }
-    .score-badge .score-pt  { font-size: 9px; opacity: .8; }
-    .score-high   { background: #dcfce7; color: var(--success); }
-    .score-medium { background: #fef9c3; color: #854d0e; }
-    .score-low    { background: var(--gray-100); color: var(--gray-600); }
+    .score-badge .score-num { font-size: 20px; line-height: 1; }
+    .score-badge .score-pt  { font-size: 9px; opacity: .75; margin-top: 1px; }
+    .score-high   { background: var(--success-light); color: var(--success); box-shadow: 0 0 0 2px #86efac; }
+    .score-medium { background: var(--warning-light); color: var(--warning); box-shadow: 0 0 0 2px #fcd34d; }
+    .score-low    { background: var(--gray-100); color: var(--gray-500); }
 
     .facility-info { flex: 1; min-width: 0; }
-    .facility-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-    .facility-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 8px;
-    }
+    .facility-name { font-size: 17px; font-weight: 800; margin-bottom: 6px; color: var(--gray-800); }
+    .facility-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 9px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-    .tag-type     { background: #ede9fe; color: #6d28d9; }
-    .tag-area     { background: #e0f2fe; color: #0369a1; }
-    .tag-seikohogo{ background: #dcfce7; color: var(--success); }
-    .tag-warning  { background: #fef3c7; color: var(--warning); }
-    .tag-danger   { background: #fee2e2; color: var(--danger); }
-    .tag-vacancy  { background: #f0fdf4; color: var(--success); border: 1px solid #86efac; }
+    .tag { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+    .tag-type     { background: #ede9fe; color: #5b21b6; }
+    .tag-area     { background: #e0f2fe; color: #075985; }
+    .tag-seikohogo{ background: var(--success-light); color: var(--success); }
+    .tag-warning  { background: var(--warning-light); color: var(--warning); }
+    .tag-danger   { background: var(--danger-light); color: var(--danger); }
+    .tag-vacancy  { background: #f0fdf4; color: var(--success); border: 1.5px solid #86efac; }
 
-    .care-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-    .care-chip {
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-    }
-    .care-ok      { background: #dcfce7; color: var(--success); }
-    .care-consult { background: #fef9c3; color: #854d0e; }
-    .care-ng      { background: #fee2e2; color: var(--danger); text-decoration: line-through; opacity: .7; }
+    .care-chips { display: flex; flex-wrap: wrap; gap: 4px; }
+    .care-chip { padding: 3px 9px; border-radius: 6px; font-size: 11px; font-weight: 600; }
+    .care-ok      { background: var(--success-light); color: var(--success); }
+    .care-consult { background: var(--warning-light); color: var(--warning); }
+    .care-ng      { background: var(--danger-light); color: var(--danger); text-decoration: line-through; opacity: .7; }
 
     .facility-expand-btn {
-      width: 100%;
-      padding: 10px 16px;
-      background: var(--gray-50);
-      border: none;
-      border-top: 1px solid var(--gray-100);
-      font-size: 13px;
-      color: var(--primary);
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
-      font-family: inherit;
-      transition: background .15s;
+      width: 100%; padding: 11px 16px; background: var(--gray-50);
+      border: none; border-top: 1.5px solid var(--gray-100);
+      font-size: 13px; color: var(--primary-mid); font-weight: 700;
+      cursor: pointer; text-align: center; font-family: inherit;
+      transition: background .15s; letter-spacing: .02em;
     }
     .facility-expand-btn:hover { background: var(--gray-100); }
 
-    .facility-detail {
-      display: none;
-      padding: 16px;
-      border-top: 1px solid var(--gray-100);
-      background: var(--gray-50);
-    }
+    .facility-detail { display: none; padding: 18px 16px; border-top: 1.5px solid var(--gray-100); background: var(--gray-50); }
     .facility-detail.show { display: block; }
 
-    .detail-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-size: 13px;
-    }
-    .detail-label {
-      flex-shrink: 0;
-      width: 110px;
-      color: var(--gray-600);
-      font-weight: 600;
-    }
-    .detail-value { color: var(--gray-800); }
+    .detail-row { display: flex; gap: 10px; margin-bottom: 12px; font-size: 14px; line-height: 1.5; }
+    .detail-label { flex-shrink: 0; width: 120px; color: var(--gray-500); font-weight: 700; font-size: 13px; }
+    .detail-value { color: var(--gray-800); font-weight: 500; }
 
     .insider-note {
-      background: #fffbeb;
-      border-left: 3px solid var(--warning);
-      padding: 10px 12px;
-      border-radius: 0 8px 8px 0;
-      font-size: 13px;
-      color: var(--gray-700);
-      margin: 12px 0;
+      background: #fffbeb; border-left: 4px solid #f59e0b;
+      padding: 11px 14px; border-radius: 0 10px 10px 0;
+      font-size: 13px; color: var(--gray-700); margin: 14px 0; line-height: 1.6;
     }
 
-    .warning-list {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      border-radius: 8px;
-      padding: 10px 14px;
-      margin-top: 10px;
-    }
-    .warning-list p {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--warning);
-      margin-bottom: 6px;
-    }
+    .warning-list { background: #fff7ed; border: 1.5px solid #fed7aa; border-radius: 10px; padding: 12px 16px; margin-top: 12px; }
+    .warning-list p { font-size: 12px; font-weight: 800; color: var(--warning); margin-bottom: 8px; }
     .warning-list ul { list-style: none; padding: 0; }
-    .warning-list li {
-      font-size: 12px;
-      color: var(--gray-700);
-      padding: 2px 0;
-    }
+    .warning-list li { font-size: 13px; color: var(--gray-700); padding: 3px 0; }
     .warning-list li::before { content: "⚠ "; }
 
     .letter-btn {
-      width: 100%;
-      margin-top: 12px;
-      padding: 11px;
-      background: #fff;
-      border: 1.5px solid var(--primary);
-      border-radius: 8px;
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all .15s;
+      width: 100%; margin-top: 14px; padding: 12px;
+      background: #fff; border: 2px solid var(--primary-mid);
+      border-radius: 10px; color: var(--primary-mid);
+      font-size: 14px; font-weight: 700; cursor: pointer;
+      font-family: inherit; transition: all .15s;
     }
     .letter-btn:hover { background: var(--primary-light); }
 
     /* ── Letter modal ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.5);
-      z-index: 200;
-      align-items: flex-end;
-    }
-    .modal-overlay.show {
-      display: flex;
-    }
-    @media (min-width: 600px) {
-      .modal-overlay { align-items: center; justify-content: center; }
-    }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 200; align-items: flex-end; }
+    .modal-overlay.show { display: flex; }
+    @media (min-width: 600px) { .modal-overlay { align-items: center; justify-content: center; } }
 
-    .modal {
-      background: #fff;
-      border-radius: var(--radius) var(--radius) 0 0;
-      width: 100%;
-      max-width: 680px;
-      max-height: 85vh;
-      display: flex;
-      flex-direction: column;
-    }
-    @media (min-width: 600px) {
-      .modal { border-radius: var(--radius); }
-    }
+    .modal { background: #fff; border-radius: var(--radius) var(--radius) 0 0; width: 100%; max-width: 680px; max-height: 85vh; display: flex; flex-direction: column; }
+    @media (min-width: 600px) { .modal { border-radius: var(--radius); } }
 
-    .modal-header {
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--gray-200);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .modal-header h3 { font-size: 16px; font-weight: 700; }
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: 22px;
-      cursor: pointer;
-      color: var(--gray-400);
-      padding: 0 4px;
-    }
+    .modal-header { padding: 18px 20px; border-bottom: 1.5px solid var(--gray-200); display: flex; align-items: center; justify-content: space-between; }
+    .modal-header h3 { font-size: 16px; font-weight: 800; }
+    .modal-close { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--gray-400); padding: 0 4px; }
 
-    .modal-body {
-      padding: 16px 20px;
-      overflow-y: auto;
-      flex: 1;
-    }
+    .modal-body { padding: 18px 20px; overflow-y: auto; flex: 1; }
 
-    .letter-type-select {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    .letter-type-btn {
-      flex: 1;
-      padding: 8px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: 8px;
-      background: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all .15s;
-    }
-    .letter-type-btn.active {
-      background: var(--primary-light);
-      border-color: var(--primary);
-      color: var(--primary);
-    }
+    .letter-type-select { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .letter-type-btn { flex: 1; padding: 10px; border: 2px solid var(--gray-200); border-radius: 10px; background: var(--gray-50); font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; transition: all .15s; }
+    .letter-type-btn.active { background: var(--primary-light); border-color: var(--primary-mid); color: var(--primary-dark); }
 
-    #letter-text {
-      width: 100%;
-      min-height: 300px;
-      padding: 14px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: 8px;
-      font-size: 13px;
-      font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
-      line-height: 1.8;
-      resize: vertical;
-    }
+    #letter-text { width: 100%; min-height: 300px; padding: 14px; border: 2px solid var(--gray-200); border-radius: 10px; font-size: 13px; font-family: "Hiragino Sans", "Noto Sans JP", sans-serif; line-height: 1.9; resize: vertical; }
 
-    .modal-footer {
-      padding: 14px 20px;
-      border-top: 1px solid var(--gray-200);
-      display: flex;
-      gap: 10px;
-    }
+    .modal-footer { padding: 14px 20px; border-top: 1.5px solid var(--gray-200); display: flex; gap: 10px; }
 
-    .copy-feedback {
-      display: inline-block;
-      font-size: 12px;
-      color: var(--success);
-      margin-left: 8px;
-      opacity: 0;
-      transition: opacity .3s;
-    }
+    .copy-feedback { display: inline-block; font-size: 12px; color: var(--success); margin-left: 8px; opacity: 0; transition: opacity .3s; }
     .copy-feedback.show { opacity: 1; }
 
     /* ── No results ── */
-    .no-results {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--gray-600);
-    }
-    .no-results .emoji { font-size: 40px; margin-bottom: 12px; }
-    .no-results p { font-size: 14px; line-height: 1.6; }
+    .no-results { text-align: center; padding: 48px 20px; color: var(--gray-500); }
+    .no-results .emoji { font-size: 44px; margin-bottom: 14px; }
+    .no-results p { font-size: 15px; line-height: 1.7; }
 
-    /* ── Reset button ── */
-    .reset-bar {
-      display: none;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+    /* ── Reset bar ── */
+    .reset-bar { display: none; text-align: center; margin-bottom: 20px; }
     .reset-bar.show { display: block; }
 
-    /* ── Excel import ── */
-    .db-banner {
-      background: #fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin-bottom: 16px;
-      border: 1.5px solid var(--gray-200);
-      overflow: hidden;
-    }
-    .db-banner-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 16px;
-      cursor: pointer;
-      user-select: none;
-    }
+    /* ── DB banner ── */
+    .db-banner { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-sm); margin-bottom: 20px; border: 1.5px solid var(--gray-200); overflow: hidden; }
+    .db-banner-header { display: flex; align-items: center; justify-content: space-between; padding: 13px 18px; cursor: pointer; user-select: none; }
     .db-banner-header:hover { background: var(--gray-50); }
-    .db-banner-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--gray-700);
-    }
-    .db-count-badge {
-      background: var(--primary);
-      color: #fff;
-      padding: 2px 9px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-    }
+    .db-banner-left { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--gray-700); }
+    .db-count-badge { background: var(--primary-mid); color: #fff; padding: 2px 10px; border-radius: 20px; font-size: 12px; font-weight: 700; }
     .db-count-badge.empty { background: var(--gray-400); }
     .db-toggle-icon { color: var(--gray-400); font-size: 12px; transition: transform .2s; }
     .db-toggle-icon.open { transform: rotate(180deg); }
 
-    .db-body { display: none; padding: 0 16px 16px; }
+    .db-body { display: none; padding: 0 18px 18px; }
     .db-body.show { display: block; }
 
-    .drop-zone {
-      border: 2px dashed var(--gray-300);
-      border-radius: 10px;
-      padding: 24px 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all .2s;
-      background: var(--gray-50);
-      margin-bottom: 12px;
-    }
-    .drop-zone.drag-over {
-      border-color: var(--primary);
-      background: var(--primary-light);
-    }
-    .drop-zone .dz-icon { font-size: 28px; margin-bottom: 6px; }
-    .drop-zone p { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
-    .drop-zone strong { color: var(--primary); }
+    .drop-zone { border: 2px dashed var(--gray-300); border-radius: 12px; padding: 28px 16px; text-align: center; cursor: pointer; transition: all .2s; background: var(--gray-50); margin-bottom: 12px; }
+    .drop-zone.drag-over { border-color: var(--primary-mid); background: var(--primary-light); }
+    .drop-zone .dz-icon { font-size: 32px; margin-bottom: 8px; }
+    .drop-zone p { font-size: 14px; color: var(--gray-600); line-height: 1.6; }
+    .drop-zone strong { color: var(--primary-mid); }
     #excel-file-input { display: none; }
 
-    .db-status-ok {
-      background: #f0fdf4;
-      border: 1px solid #86efac;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 13px;
-      color: var(--success);
-      font-weight: 600;
-      display: none;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
+    .db-status-ok { background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 10px; padding: 11px 16px; font-size: 13px; color: var(--success); font-weight: 700; display: none; align-items: center; gap: 8px; margin-bottom: 12px; }
     .db-status-ok.show { display: flex; }
 
-    .db-status-err {
-      background: #fef2f2;
-      border: 1px solid #fca5a5;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 13px;
-      color: var(--danger);
-      display: none;
-      margin-bottom: 12px;
-    }
+    .db-status-err { background: #fef2f2; border: 1.5px solid #fca5a5; border-radius: 10px; padding: 11px 16px; font-size: 13px; color: var(--danger); display: none; margin-bottom: 12px; }
     .db-status-err.show { display: block; }
 
-    .db-hint {
-      font-size: 11px;
-      color: var(--gray-400);
-      text-align: center;
-    }
-    .db-hint a { color: var(--primary); text-decoration: none; }
+    .db-hint { font-size: 12px; color: var(--gray-400); text-align: center; }
+    .db-hint a { color: var(--primary-mid); text-decoration: none; }
     .db-hint a:hover { text-decoration: underline; }
 
-    /* ── 住所地特例・世帯分離パネル ── */
-    .seikohogo-extra {
-      display: none;
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px dashed var(--gray-200);
-    }
+    /* ── 住所地特例・世帯分離 ── */
+    .seikohogo-extra { display: none; margin-top: 16px; padding-top: 16px; border-top: 1.5px dashed var(--gray-200); }
     .seikohogo-extra.show { display: block; }
 
-    .juusho-panel {
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 12px;
-      border: 1.5px solid var(--gray-200);
-    }
-    .juusho-panel-header {
-      padding: 10px 14px;
-      font-size: 13px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .juusho-body {
-      padding: 12px 14px;
-      font-size: 12px;
-      line-height: 1.7;
-      color: var(--gray-700);
-      background: #fff;
-    }
-    .juusho-body ul {
-      margin: 6px 0 0 16px;
-    }
-    .juusho-body li { margin-bottom: 3px; }
-    .juusho-body .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-      padding: 4px 0;
-      border-bottom: 1px solid var(--gray-100);
-    }
+    .juusho-panel { border-radius: 12px; overflow: hidden; margin-top: 14px; border: 1.5px solid var(--gray-200); }
+    .juusho-panel-header { padding: 11px 16px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .juusho-body { padding: 14px 16px; font-size: 13px; line-height: 1.7; color: var(--gray-700); background: #fff; }
+    .juusho-body .check-item { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--gray-100); }
     .juusho-body .check-item:last-child { border-bottom: none; }
-    .juusho-body .check-icon { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+    .juusho-body .check-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
     .juusho-body .check-text { flex: 1; }
-    .juusho-body .check-label { font-weight: 600; color: var(--gray-800); }
-    .juusho-body .check-note  { color: var(--gray-600); font-size: 11px; }
+    .juusho-body .check-label { font-weight: 700; color: var(--gray-800); }
+    .juusho-body .check-note  { color: var(--gray-500); font-size: 12px; }
 
-    /* alert = 住所地特例発生 */
-    .juusho-alert .juusho-panel-header {
-      background: #fff7ed;
-      color: #92400e;
-      border-bottom: 1px solid #fed7aa;
-    }
-    /* caution = 要確認 */
-    .juusho-caution .juusho-panel-header {
-      background: #fef9c3;
-      color: #854d0e;
-      border-bottom: 1px solid #fde047;
-    }
-    /* ok = 問題なし */
-    .juusho-ok .juusho-panel-header {
-      background: #f0fdf4;
-      color: #166534;
-      border-bottom: 1px solid #86efac;
-    }
-    /* info = 生保非該当時 */
-    .juusho-info .juusho-panel-header {
-      background: var(--gray-50);
-      color: var(--gray-600);
-      border-bottom: 1px solid var(--gray-200);
-    }
+    .juusho-alert .juusho-panel-header   { background: #fff7ed; color: #92400e; border-bottom: 1px solid #fed7aa; }
+    .juusho-caution .juusho-panel-header { background: #fef9c3; color: #854d0e; border-bottom: 1px solid #fde047; }
+    .juusho-ok .juusho-panel-header      { background: #f0fdf4; color: #166534; border-bottom: 1px solid #86efac; }
+    .juusho-info .juusho-panel-header    { background: var(--gray-50); color: var(--gray-600); border-bottom: 1px solid var(--gray-200); }
 
-    .badge-alert   { background: #fff7ed; color: #92400e; border: 1px solid #fed7aa;
-                     padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; }
-    .badge-caution { background: #fef9c3; color: #854d0e; border: 1px solid #fde047;
-                     padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; }
-    .badge-ok      { background: #dcfce7; color: #166534; border: 1px solid #86efac;
-                     padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; }
-    .badge-info    { background: var(--gray-100); color: var(--gray-600);
-                     padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+    .badge-alert   { background: #fff7ed; color: #92400e; border: 1px solid #fed7aa; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+    .badge-caution { background: #fef9c3; color: #854d0e; border: 1px solid #fde047; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+    .badge-ok      { background: #dcfce7; color: #166534; border: 1px solid #86efac; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+    .badge-info    { background: var(--gray-100); color: var(--gray-500); padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; }
 
     /* ── Responsive ── */
     @media (max-width: 480px) {
-      .radio-group label, .checkbox-group label {
-        padding: 7px 11px;
-        font-size: 13px;
-      }
+      .card { padding: 18px 14px; }
+      .radio-group label, .checkbox-group label { padding: 8px 12px; font-size: 13px; }
+      .facility-name { font-size: 15px; }
     }
+
+    /* ── Template editor ── */
+    #template-editor { display: none; }
+    #template-editor.show { display: block; }
+
+    .tmpl-tab-bar { display: flex; gap: 8px; margin-bottom: 14px; }
+    .tmpl-tab-btn {
+      flex: 1; padding: 9px; border: 2px solid var(--gray-200);
+      border-radius: 10px; background: var(--gray-50);
+      font-size: 13px; font-weight: 700; cursor: pointer;
+      font-family: inherit; transition: all .15s; color: var(--gray-600);
+    }
+    .tmpl-tab-btn.active {
+      background: var(--primary-light); border-color: var(--primary-mid);
+      color: var(--primary-dark);
+    }
+
+    #tmpl-textarea {
+      width: 100%; min-height: 340px; padding: 14px;
+      border: 2px solid var(--gray-200); border-radius: 10px;
+      font-size: 13px; font-family: "Hiragino Sans", "Noto Sans JP", monospace;
+      line-height: 1.8; resize: vertical;
+    }
+    #tmpl-textarea:focus {
+      outline: none; border-color: var(--primary-mid);
+      box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+    }
+
+    .tmpl-placeholders {
+      margin-top: 12px; padding: 12px 14px;
+      background: var(--gray-50); border: 1px solid var(--gray-200);
+      border-radius: 10px; font-size: 12px; color: var(--gray-600);
+    }
+    .tmpl-placeholders strong { display: block; margin-bottom: 8px; color: var(--gray-700); font-size: 12px; }
+    .ph-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ph-tag {
+      background: #fff; border: 1px solid var(--gray-300);
+      border-radius: 6px; padding: 3px 8px;
+      font-family: monospace; font-size: 11px; color: var(--primary-dark);
+      cursor: pointer; transition: background .1s;
+    }
+    .ph-tag:hover { background: var(--primary-light); }
+
+    .tmpl-saved-msg {
+      display: inline-block; font-size: 12px; color: var(--success);
+      margin-left: 8px; opacity: 0; transition: opacity .3s;
+    }
+    .tmpl-saved-msg.show { opacity: 1; }
+
+    .db-cache-info {
+      font-size: 12px; color: var(--gray-600);
+      margin: 10px 0 8px; line-height: 1.5;
+    }
+    .db-cache-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .btn-ghost {
+      padding: 8px 12px; border: 1px solid var(--gray-300);
+      border-radius: 8px; background: #fff; color: var(--gray-700);
+      font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .btn-ghost:hover { background: var(--gray-100); }
   </style>
 </head>
 <body>
@@ -734,8 +529,13 @@
       </div>
       <input type="file" id="excel-file-input" accept=".xlsx,.xls" onchange="onFileSelected(event)">
 
+      <p class="db-cache-info" id="db-cache-info"></p>
+      <div class="db-cache-actions">
+        <button type="button" class="btn-ghost" onclick="clearFacilitiesCache()">端末の保存データを削除</button>
+      </div>
       <p class="db-hint">
-        Excelテンプレート:
+        Excelを一度読み込むとこの端末に保存され、次回から自動で使われます。データ更新時は新しいExcelをアップロードしてください。<br>
+        テンプレート:
         <a href="施設データ.xlsx" download>施設データ.xlsx をダウンロード</a>
       </p>
     </div>
@@ -744,211 +544,194 @@
   <!-- ===== FORM SECTION ===== -->
   <div id="form-section">
 
-    <div class="steps">
-      <div class="step-item active" id="si-1"></div>
-      <div class="step-item" id="si-2"></div>
-      <div class="step-item" id="si-3"></div>
-      <div class="step-item" id="si-4"></div>
-    </div>
-    <div class="step-label" id="step-label"><span>STEP 1</span> 基本条件</div>
+    <!-- 基本条件 -->
+    <div class="card">
+      <div class="card-title" data-icon="📋">基本条件<span class="card-num">1 / 4</span></div>
 
-    <!-- STEP 1: 基本条件 -->
-    <div id="step-1">
-      <div class="card">
-        <div class="card-title" data-icon="📋">基本条件</div>
-
-        <div class="field">
-          <label class="field-label">要介護度 <span class="required">必須</span></label>
-          <div class="radio-group" id="care-level-group">
-            <label><input type="radio" name="care_level" value="1"> 要介護1</label>
-            <label><input type="radio" name="care_level" value="2"> 要介護2</label>
-            <label><input type="radio" name="care_level" value="3"> 要介護3</label>
-            <label><input type="radio" name="care_level" value="4"> 要介護4</label>
-            <label><input type="radio" name="care_level" value="5"> 要介護5</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="field-label">希望エリア <span class="required">必須</span></label>
-          <div class="checkbox-group" id="area-group">
-            <label><input type="checkbox" name="area" value="鹿児島市"> 鹿児島市</label>
-            <label><input type="checkbox" name="area" value="霧島市"> 霧島市</label>
-            <label><input type="checkbox" name="area" value="姶良市"> 姶良市</label>
-            <label><input type="checkbox" name="area" value="北薩"> 北薩</label>
-            <label><input type="checkbox" name="area" value="南薩"> 南薩</label>
-            <label><input type="checkbox" name="area" value="大隅"> 大隅</label>
-            <label><input type="checkbox" name="area" value="離島"> 離島</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="field-label">生活保護</label>
-          <div class="radio-group">
-            <label><input type="radio" name="seikohogo" value="yes" onclick="toggleSeikohogoExtra(true)"> 受給中</label>
-            <label><input type="radio" name="seikohogo" value="no" checked onclick="toggleSeikohogoExtra(false)"> なし</label>
-          </div>
-
-          <!-- 生保受給中のみ表示 -->
-          <div class="seikohogo-extra" id="seikohogo-extra">
-            <div class="field" style="margin-bottom:14px;">
-              <label class="field-label">住民票所在地 <span class="required">住所地特例の判定に使用</span></label>
-              <div class="radio-group" id="juusho-area-group">
-                <label><input type="radio" name="juusho_area" value="鹿児島市"> 鹿児島市</label>
-                <label><input type="radio" name="juusho_area" value="霧島市"> 霧島市</label>
-                <label><input type="radio" name="juusho_area" value="姶良市"> 姶良市</label>
-                <label><input type="radio" name="juusho_area" value="北薩"> 北薩</label>
-                <label><input type="radio" name="juusho_area" value="南薩"> 南薩</label>
-                <label><input type="radio" name="juusho_area" value="大隅"> 大隅</label>
-                <label><input type="radio" name="juusho_area" value="離島"> 離島</label>
-              </div>
-              <p style="font-size:11px; color:var(--gray-400); margin-top:6px;">
-                ※ 住民票と異なるエリアの施設に入所すると「住所地特例」の適用確認が必要です
-              </p>
-            </div>
-            <div class="field" style="margin-bottom:0;">
-              <label class="field-label">同居家族の有無 <span class="required">世帯分離の判定に使用</span></label>
-              <div class="radio-group">
-                <label><input type="radio" name="doukyo" value="yes"> あり（同一世帯）</label>
-                <label><input type="radio" name="doukyo" value="no"> なし（独居・別世帯）</label>
-                <label><input type="radio" name="doukyo" value="unknown"> 不明</label>
-              </div>
-              <p style="font-size:11px; color:var(--gray-400); margin-top:6px;">
-                ※ 同居家族がいる場合、施設入所時に「世帯分離」が必要になることがあります
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="field-label">負担限度額認定</label>
-          <div class="radio-group">
-            <label><input type="radio" name="limit_stage" value="1"> 第1段階</label>
-            <label><input type="radio" name="limit_stage" value="2"> 第2段階</label>
-            <label><input type="radio" name="limit_stage" value="3"> 第3段階</label>
-            <label><input type="radio" name="limit_stage" value="4"> 第4段階</label>
-            <label><input type="radio" name="limit_stage" value="none" checked> 非該当</label>
-          </div>
-        </div>
-      </div>
-      <div class="btn-group">
-        <button class="btn btn-primary" onclick="goStep(2)">次へ →</button>
-      </div>
-    </div>
-
-    <!-- STEP 2: 医療ケア -->
-    <div id="step-2" style="display:none">
-      <div class="card">
-        <div class="card-title" data-icon="💊">必要な医療ケア</div>
-        <div class="field">
-          <label class="field-label">該当するものをすべて選択</label>
-          <div class="checkbox-group" id="medical-group">
-            <label><input type="checkbox" name="medical" value="insulin"> インスリン注射</label>
-            <label><input type="checkbox" name="medical" value="gastrostomy"> 胃瘻</label>
-            <label><input type="checkbox" name="medical" value="tube_feeding"> 経管栄養</label>
-            <label><input type="checkbox" name="medical" value="suction"> 喀痰吸引</label>
-            <label><input type="checkbox" name="medical" value="balloon"> 尿道バルーン</label>
-            <label><input type="checkbox" name="medical" value="pressure_sore"> 褥瘡処置</label>
-            <label><input type="checkbox" name="medical" value="dialysis"> 透析</label>
-          </div>
-        </div>
-        <p style="font-size:12px; color:var(--gray-400); margin-top:8px;">※ 該当なしの場合はそのまま次へ</p>
-      </div>
-      <div class="btn-group">
-        <button class="btn btn-secondary" onclick="goStep(1)">← 戻る</button>
-        <button class="btn btn-primary" onclick="goStep(3)">次へ →</button>
-      </div>
-    </div>
-
-    <!-- STEP 3: 身体・認知状況 -->
-    <div id="step-3" style="display:none">
-      <div class="card">
-        <div class="card-title" data-icon="🧠">身体・認知状況</div>
-
-        <div class="field">
-          <label class="field-label">ADL（移動）</label>
-          <div class="radio-group">
-            <label><input type="radio" name="adl" value="independent"> 自立・一部介助</label>
-            <label><input type="radio" name="adl" value="wheelchair"> 車椅子</label>
-            <label><input type="radio" name="adl" value="bedridden"> 寝たきり</label>
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="field-label">認知症</label>
-          <div class="radio-group">
-            <label><input type="radio" name="dementia" value="none" checked> なし</label>
-            <label><input type="radio" name="dementia" value="mild"> あり（BPSDなし）</label>
-            <label><input type="radio" name="dementia" value="bpsd" onclick="document.getElementById('bpsd-detail').classList.add('show')"> あり（BPSDあり）</label>
-          </div>
-          <div class="bpsd-detail" id="bpsd-detail">
-            <label class="field-label" style="margin-top:12px;">BPSDの内容</label>
+      <div class="field">
+        <label class="field-label">要介護度・自立度 <span class="required-badge">必須</span></label>
+        <p style="font-size:12px; color:var(--gray-500); margin-bottom:10px;">該当するものをすべて選択（複数可）</p>
+        <div class="care-level-tiers">
+          <div>
+            <div class="care-tier-label">自立</div>
             <div class="checkbox-group">
-              <label><input type="checkbox" name="bpsd" value="wandering"> 徘徊</label>
-              <label><input type="checkbox" name="bpsd" value="aggression"> 暴言・暴力</label>
-              <label><input type="checkbox" name="bpsd" value="nocturnal"> 夜間不穏</label>
-              <label><input type="checkbox" name="bpsd" value="pica"> 異食</label>
+              <label><input type="checkbox" name="care_level" value="j1"> 自立1</label>
+              <label><input type="checkbox" name="care_level" value="j2"> 自立2</label>
+            </div>
+          </div>
+          <div>
+            <div class="care-tier-label">要介護</div>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="care_level" value="1"> 要介護1</label>
+              <label><input type="checkbox" name="care_level" value="2"> 要介護2</label>
+              <label><input type="checkbox" name="care_level" value="3"> 要介護3</label>
+              <label><input type="checkbox" name="care_level" value="4"> 要介護4</label>
+              <label><input type="checkbox" name="care_level" value="5"> 要介護5</label>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="field">
-          <label class="field-label">施設種別の希望（任意）</label>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="preferred_type" value="tokuyou"> 特養</label>
-            <label><input type="checkbox" name="preferred_type" value="roken"> 老健</label>
-            <label><input type="checkbox" name="preferred_type" value="iryoin"> 介護医療院</label>
-            <label><input type="checkbox" name="preferred_type" value="sahoju"> サ高住</label>
-            <label><input type="checkbox" name="preferred_type" value="tokuteishisetsu"> 特定施設</label>
-          </div>
+      <div class="field">
+        <label class="field-label">希望エリア <span class="required-badge">必須</span></label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="area" value="鹿児島市"> 鹿児島市</label>
+          <label><input type="checkbox" name="area" value="霧島市"> 霧島市</label>
+          <label><input type="checkbox" name="area" value="姶良市"> 姶良市</label>
+          <label><input type="checkbox" name="area" value="北薩"> 北薩</label>
+          <label><input type="checkbox" name="area" value="南薩"> 南薩</label>
+          <label><input type="checkbox" name="area" value="大隅"> 大隅</label>
+          <label><input type="checkbox" name="area" value="離島"> 離島</label>
         </div>
       </div>
-      <div class="btn-group">
-        <button class="btn btn-secondary" onclick="goStep(2)">← 戻る</button>
-        <button class="btn btn-primary" onclick="goStep(4)">次へ →</button>
-      </div>
-    </div>
 
-    <!-- STEP 4: 個人情報（任意） -->
-    <div id="step-4" style="display:none">
-      <div class="card">
-        <div class="card-title" data-icon="👤">個人情報（任意）</div>
-        <p style="font-size:12px; color:var(--gray-400); margin-bottom:16px;">紹介文の自動生成に使用します</p>
-
-        <div class="field">
-          <label class="field-label">年齢・性別</label>
-          <div style="display:flex; gap:10px;">
-            <input type="text" id="input-age" placeholder="例：85" style="width:100px;">
+      <div class="field">
+        <label class="field-label">生活保護</label>
+        <div class="radio-group">
+          <label><input type="radio" name="seikohogo" value="yes" onclick="toggleSeikohogoExtra(true)"> 受給中</label>
+          <label><input type="radio" name="seikohogo" value="no" checked onclick="toggleSeikohogoExtra(false)"> なし</label>
+        </div>
+        <div class="seikohogo-extra" id="seikohogo-extra">
+          <div class="field" style="margin-bottom:14px;">
+            <label class="field-label">住民票所在地 <span class="required">住所地特例の判定に使用</span></label>
             <div class="radio-group">
-              <label><input type="radio" name="gender" value="男性"> 男性</label>
-              <label><input type="radio" name="gender" value="女性"> 女性</label>
+              <label><input type="radio" name="juusho_area" value="鹿児島市"> 鹿児島市</label>
+              <label><input type="radio" name="juusho_area" value="霧島市"> 霧島市</label>
+              <label><input type="radio" name="juusho_area" value="姶良市"> 姶良市</label>
+              <label><input type="radio" name="juusho_area" value="北薩"> 北薩</label>
+              <label><input type="radio" name="juusho_area" value="南薩"> 南薩</label>
+              <label><input type="radio" name="juusho_area" value="大隅"> 大隅</label>
+              <label><input type="radio" name="juusho_area" value="離島"> 離島</label>
             </div>
+            <p style="font-size:11px; color:var(--gray-400); margin-top:6px;">
+              ※ 住民票と異なるエリアの施設に入所すると「住所地特例」の適用確認が必要です
+            </p>
           </div>
-        </div>
-
-        <div class="field">
-          <label class="field-label">身元保証人</label>
-          <div class="radio-group">
-            <label><input type="radio" name="guarantor" value="yes"> あり</label>
-            <label><input type="radio" name="guarantor" value="no"> なし</label>
-            <label><input type="radio" name="guarantor" value="pending"> 調整中</label>
+          <div class="field" style="margin-bottom:0;">
+            <label class="field-label">同居家族の有無 <span class="required">世帯分離の判定に使用</span></label>
+            <div class="radio-group">
+              <label><input type="radio" name="doukyo" value="yes"> あり（同一世帯）</label>
+              <label><input type="radio" name="doukyo" value="no"> なし（独居・別世帯）</label>
+              <label><input type="radio" name="doukyo" value="unknown"> 不明</label>
+            </div>
+            <p style="font-size:11px; color:var(--gray-400); margin-top:6px;">
+              ※ 同居家族がいる場合、施設入所時に「世帯分離」が必要になることがあります
+            </p>
           </div>
-        </div>
-
-        <div class="field">
-          <label class="field-label">特記事項・申し送り</label>
-          <textarea id="input-notes" rows="3" placeholder="例：家族の面会希望は鹿児島市内。温和な性格で施設スタッフとの関係は良好。"></textarea>
-        </div>
-
-        <div class="field">
-          <label class="field-label">相談員・機関名（任意）</label>
-          <input type="text" id="input-sender" placeholder="例：○○病院 相談員 山田">
         </div>
       </div>
-      <div class="btn-group">
-        <button class="btn btn-secondary" onclick="goStep(3)">← 戻る</button>
-        <button class="btn btn-primary" onclick="runMatching()">🔍 候補施設を検索</button>
+
+      <div class="field">
+        <label class="field-label">負担限度額認定</label>
+        <div class="radio-group">
+          <label><input type="radio" name="limit_stage" value="1"> 第1段階</label>
+          <label><input type="radio" name="limit_stage" value="2"> 第2段階</label>
+          <label><input type="radio" name="limit_stage" value="3-1"> 第3-1段階</label>
+          <label><input type="radio" name="limit_stage" value="3-2"> 第3-2段階</label>
+          <label><input type="radio" name="limit_stage" value="4"> 第4段階</label>
+          <label><input type="radio" name="limit_stage" value="none" checked> 非該当</label>
+        </div>
       </div>
     </div>
+
+    <!-- 医療ケア -->
+    <div class="card">
+      <div class="card-title" data-icon="💊">必要な医療ケア<span class="card-num">2 / 4</span></div>
+      <div class="field">
+        <label class="field-label">該当するものをすべて選択</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="medical" value="insulin"> インスリン注射</label>
+          <label><input type="checkbox" name="medical" value="gastrostomy"> 胃瘻</label>
+          <label><input type="checkbox" name="medical" value="tube_feeding"> 経管栄養</label>
+          <label><input type="checkbox" name="medical" value="suction"> 喀痰吸引</label>
+          <label><input type="checkbox" name="medical" value="balloon"> 尿道バルーン</label>
+          <label><input type="checkbox" name="medical" value="pressure_sore"> 褥瘡処置</label>
+          <label><input type="checkbox" name="medical" value="dialysis"> 透析</label>
+        </div>
+      </div>
+      <p style="font-size:12px; color:var(--gray-400); margin-top:8px;">※ 該当なしの場合は空欄のままで構いません</p>
+    </div>
+
+    <!-- 身体・認知状況 -->
+    <div class="card">
+      <div class="card-title" data-icon="🧠">身体・認知状況<span class="card-num">3 / 4</span></div>
+
+      <div class="field">
+        <label class="field-label">ADL（移動）</label>
+        <div class="radio-group">
+          <label><input type="radio" name="adl" value="independent"> 自立・一部介助</label>
+          <label><input type="radio" name="adl" value="wheelchair"> 車椅子</label>
+          <label><input type="radio" name="adl" value="bedridden"> 寝たきり</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">認知症</label>
+        <div class="radio-group">
+          <label><input type="radio" name="dementia" value="none" checked> なし</label>
+          <label><input type="radio" name="dementia" value="mild"> あり（BPSDなし）</label>
+          <label><input type="radio" name="dementia" value="bpsd"> あり（BPSDあり）</label>
+        </div>
+        <div class="bpsd-detail" id="bpsd-detail">
+          <label class="field-label" style="margin-top:12px;">BPSDの内容</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="bpsd" value="wandering"> 徘徊</label>
+            <label><input type="checkbox" name="bpsd" value="aggression"> 暴言・暴力</label>
+            <label><input type="checkbox" name="bpsd" value="nocturnal"> 夜間不穏</label>
+            <label><input type="checkbox" name="bpsd" value="pica"> 異食</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">施設種別の希望（任意）</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="preferred_type" value="tokuyou"> 特養</label>
+          <label><input type="checkbox" name="preferred_type" value="roken"> 老健</label>
+          <label><input type="checkbox" name="preferred_type" value="iryoin"> 介護医療院</label>
+          <label><input type="checkbox" name="preferred_type" value="sahoju"> サ高住</label>
+          <label><input type="checkbox" name="preferred_type" value="tokuteishisetsu"> 特定施設</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 個人情報（任意） -->
+    <div class="card">
+      <div class="card-title" data-icon="👤">個人情報（任意）<span class="card-num">4 / 4</span></div>
+      <p style="font-size:12px; color:var(--gray-400); margin-bottom:16px;">紹介文の自動生成に使用します</p>
+
+      <div class="field">
+        <label class="field-label">年齢・性別</label>
+        <div style="display:flex; gap:10px;">
+          <input type="text" id="input-age" placeholder="例：85" style="width:100px;">
+          <div class="radio-group">
+            <label><input type="radio" name="gender" value="男性"> 男性</label>
+            <label><input type="radio" name="gender" value="女性"> 女性</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">身元保証人</label>
+        <div class="radio-group">
+          <label><input type="radio" name="guarantor" value="yes"> あり</label>
+          <label><input type="radio" name="guarantor" value="no"> なし</label>
+          <label><input type="radio" name="guarantor" value="pending"> 調整中</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">特記事項・申し送り</label>
+        <textarea id="input-notes" rows="3" placeholder="例：家族の面会希望は鹿児島市内。温和な性格で施設スタッフとの関係は良好。"></textarea>
+      </div>
+
+      <div class="field">
+        <label class="field-label">相談員・機関名（任意）</label>
+        <input type="text" id="input-sender" placeholder="例：○○病院 相談員 山田">
+      </div>
+    </div>
+
+    <button class="btn-search" onclick="runMatching()">🔍 候補施設を検索</button>
 
   </div><!-- /form-section -->
 
@@ -975,19 +758,56 @@
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal">
     <div class="modal-header">
-      <h3>📝 紹介文を生成</h3>
+      <h3 id="modal-title">📝 紹介文を生成</h3>
       <button class="modal-close" onclick="closeModalDirect()">✕</button>
     </div>
     <div class="modal-body">
-      <div class="letter-type-select">
-        <button class="letter-type-btn active" onclick="switchLetterType('tel', this)">📞 電話用メモ</button>
-        <button class="letter-type-btn" onclick="switchLetterType('fax', this)">📠 FAX/メール用</button>
+
+      <!-- 紹介文プレビュー -->
+      <div id="letter-preview">
+        <div class="letter-type-select">
+          <button class="letter-type-btn active" id="tab-tel" onclick="switchLetterType('tel', this)">📞 電話用メモ</button>
+          <button class="letter-type-btn" id="tab-fax" onclick="switchLetterType('fax', this)">📠 FAX/メール用</button>
+          <button class="letter-type-btn" id="tab-tmpl" onclick="openTemplateEditor()">⚙ 編集</button>
+        </div>
+        <textarea id="letter-text"></textarea>
       </div>
-      <textarea id="letter-text"></textarea>
+
+      <!-- テンプレート編集 -->
+      <div id="template-editor">
+        <div class="tmpl-tab-bar">
+          <button class="tmpl-tab-btn active" id="tmpl-tab-tel" onclick="switchTmplTab('tel', this)">📞 電話用メモ</button>
+          <button class="tmpl-tab-btn" id="tmpl-tab-fax" onclick="switchTmplTab('fax', this)">📠 FAX/メール用</button>
+        </div>
+        <textarea id="tmpl-textarea" placeholder="テンプレートを編集..."></textarea>
+        <div class="tmpl-placeholders">
+          <strong>📌 使えるプレースホルダー（クリックで挿入）</strong>
+          <div class="ph-list">
+            <span class="ph-tag" onclick="insertPlaceholder('{{施設名}}')">{{施設名}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{TEL}}')">{{TEL}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{FAX}}')">{{FAX}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{担当者行}}')">{{担当者行}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{送信元}}')">{{送信元}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{プロフィール}}')">{{プロフィール}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{特記事項}}')">{{特記事項}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{特記事項本文}}')">{{特記事項本文}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{医療ケア注意}}')">{{医療ケア注意}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{認知症備考}}')">{{認知症備考}}</span>
+            <span class="ph-tag" onclick="insertPlaceholder('{{住所地特例メモ}}')">{{住所地特例メモ}}</span>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" id="modal-footer-preview">
       <button class="btn btn-primary" onclick="copyLetter()" style="flex:1">
         コピーする <span class="copy-feedback" id="copy-feedback">✓ コピーしました</span>
+      </button>
+    </div>
+    <div class="modal-footer" id="modal-footer-tmpl" style="display:none">
+      <button class="btn btn-secondary btn-sm" onclick="resetTemplate()" style="flex-shrink:0">デフォルトに戻す</button>
+      <button class="btn btn-primary" onclick="saveTemplate()" style="flex:1">
+        保存する <span class="tmpl-saved-msg" id="tmpl-saved-msg">✓ 保存しました</span>
       </button>
     </div>
   </div>
@@ -1001,6 +821,9 @@ let facilitiesData = [];
 let currentFacility = null;
 let currentLetterType = 'tel';
 let formData = {};
+
+const FACILITIES_STORAGE_KEY = 'soudanin_facilities_v1';
+const FACILITIES_META_KEY = 'soudanin_facilities_meta_v1';
 
 // ──────────────────────────────
 // DB Banner
@@ -1021,6 +844,69 @@ function updateDbBadge() {
     badge.textContent = facilitiesData.length + '施設';
     badge.classList.remove('empty');
   }
+}
+
+function normalizeFacility(f) {
+  return {
+    ...f,
+    care_level_keys: f.care_level_keys || (f.care_levels || []).map(String),
+    economics: {
+      ...f.economics,
+      limit_stages: normalizeLimitStages(f.economics?.limit_stages || []),
+    },
+  };
+}
+
+function formatCacheDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleString('ja-JP', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+}
+
+function updateCacheInfo(meta, source) {
+  const el = document.getElementById('db-cache-info');
+  if (!el) return;
+  if (meta?.savedAt) {
+    const src = meta.fileName ? `「${meta.fileName}」` : 'Excel';
+    el.textContent = `この端末に保存済み: ${meta.count || facilitiesData.length}件（${src}・${formatCacheDate(meta.savedAt)}）`;
+  } else if (source === 'json') {
+    el.textContent = '同梱の facilities.json を読み込み中（動作確認用）。本番はExcelをアップロードしてください。';
+  } else {
+    el.textContent = '';
+  }
+}
+
+function saveFacilitiesToDevice(facilities, meta) {
+  try {
+    localStorage.setItem(FACILITIES_STORAGE_KEY, JSON.stringify(facilities));
+    localStorage.setItem(FACILITIES_META_KEY, JSON.stringify(meta));
+    updateCacheInfo(meta);
+  } catch (e) {
+    console.warn('端末への保存に失敗しました（容量超過の可能性）', e);
+    alert('データは読み込めましたが、この端末への保存に失敗しました。ブラウザの保存容量を確認してください。');
+  }
+}
+
+function loadFacilitiesFromDevice() {
+  try {
+    const raw = localStorage.getItem(FACILITIES_STORAGE_KEY);
+    if (!raw) return null;
+    const facilities = JSON.parse(raw);
+    const meta = JSON.parse(localStorage.getItem(FACILITIES_META_KEY) || 'null');
+    if (!Array.isArray(facilities) || facilities.length === 0) return null;
+    return { facilities, meta };
+  } catch (e) {
+    console.warn('端末の保存データの読み込みに失敗', e);
+    return null;
+  }
+}
+
+function clearFacilitiesCache() {
+  if (!confirm('この端末に保存した施設データを削除します。よろしいですか？')) return;
+  localStorage.removeItem(FACILITIES_STORAGE_KEY);
+  localStorage.removeItem(FACILITIES_META_KEY);
+  loadFacilities();
 }
 
 // ──────────────────────────────
@@ -1067,11 +953,17 @@ function processExcelFile(file) {
 
       if (parsed.length === 0) throw new Error('有効なデータが見つかりませんでした。');
 
-      facilitiesData = parsed;
+      facilitiesData = parsed.map(normalizeFacility);
+      const meta = {
+        fileName: file.name,
+        savedAt: new Date().toISOString(),
+        count: parsed.length,
+      };
+      saveFacilitiesToDevice(facilitiesData, meta);
       updateDbBadge();
 
       document.getElementById('db-status-ok-text').textContent =
-        `${parsed.length}件の施設データを読み込みました（${file.name}）`;
+        `${parsed.length}件を読み込み、この端末に保存しました（${file.name}）`;
       okEl.classList.add('show');
 
       // Auto-close panel after success
@@ -1101,57 +993,80 @@ const TYPE_CODE_MAP = {
   'その他':                     'other',
 };
 
+function careKeyLabel(k) {
+  if (k === 'j1') return '自立1';
+  if (k === 'j2') return '自立2';
+  if (/^[1-5]$/.test(String(k))) return '要介護' + k;
+  return String(k);
+}
+
+function normalizeLimitStages(stages) {
+  if (!stages || !stages.length) return [];
+  const out = [];
+  for (const x of stages) {
+    const s = String(x);
+    if (s === '3') {
+      out.push('3-1', '3-2');
+    } else {
+      out.push(s);
+    }
+  }
+  return [...new Set(out)];
+}
+
 function excelRowToFacility(r) {
-  // Column index (0-based): matches template
-  // 0=ID, 1=施設名, 2=種別, 3-7=要介護1-5, 8=個室, 9=多床室,
-  // 10=insulin, 11=gastrostomy, 12=tube_feeding, 13=suction,
-  // 14=balloon, 15=pressure_sore, 16=dialysis,
-  // 17=生保, 18-21=第1-4段階, 22=エリア, 23=住所, 24=電話, 25=FAX,
-  // 26=担当者, 27=担当者メモ, 28=柔軟性, 29=空床, 30=判定頻度,
-  // 31=強み, 32=月額, 33=備考
+  // 0=ID, 1=施設名, 2=施設種別, 3-4=自立1-2, 5-9=要介護1-5, 10-11=個室・多床室,
+  // 12-18=医療ケア, 19=生保, 20-24=第1・2・3-1・3-2・4, 25=エリア…
 
-  const care_levels = [1,2,3,4,5].filter((_, i) => r[3 + i] === '○');
+  const care_level_keys = [];
+  if (r[3] === '○') care_level_keys.push('j1');
+  if (r[4] === '○') care_level_keys.push('j2');
+  for (let i = 0; i < 5; i++) {
+    if (r[5 + i] === '○') care_level_keys.push(String(i + 1));
+  }
+
   const room_types  = [];
-  if (r[8] === '○') room_types.push('個室');
-  if (r[9] === '○') room_types.push('多床室');
+  if (r[10] === '○') room_types.push('個室');
+  if (r[11] === '○') room_types.push('多床室');
 
-  const limit_stages = [1,2,3,4].filter((_, i) => r[18 + i] === '○');
+  const stageKeys = ['1', '2', '3-1', '3-2', '4'];
+  const limit_stages = stageKeys.filter((_, i) => r[20 + i] === '○');
 
-  const strengths = String(r[31] || '').split(/[,、・]/).map(s => s.trim()).filter(Boolean);
+  const strengths = String(r[34] || '').split(/[,、・]/).map(s => s.trim()).filter(Boolean);
 
   return {
     id:        Number(r[0]) || Math.random(),
     name:      String(r[1]),
     type:      String(r[2]),
     type_code: TYPE_CODE_MAP[r[2]] || 'other',
-    area:      String(r[22] || ''),
-    address:   String(r[23] || ''),
-    tel:       String(r[24] || ''),
-    fax:       String(r[25] || ''),
-    care_levels,
+    area:      String(r[25] || ''),
+    address:   String(r[26] || ''),
+    tel:       String(r[27] || ''),
+    fax:       String(r[28] || ''),
+    care_level_keys,
     room_types,
     medical_care: {
-      insulin:       r[10] || '×',
-      gastrostomy:   r[11] || '×',
-      tube_feeding:  r[12] || '×',
-      suction:       r[13] || '×',
-      balloon:       r[14] || '×',
-      pressure_sore: r[15] || '×',
-      dialysis:      r[16] || '×',
+      insulin:       r[12] || '不明',
+      gastrostomy:   r[13] || '不明',
+      tube_feeding:  r[14] || '不明',
+      suction:       r[15] || '不明',
+      balloon:       r[16] || '不明',
+      pressure_sore: r[17] || '不明',
+      dialysis:      r[18] || '不明',
     },
     economics: {
-      seikohogo:         r[17] === '○',
+      seikohogo:         r[19] === '○',
       limit_stages,
-      monthly_fee_note:  String(r[32] || ''),
+      monthly_fee_note:  String(r[35] || ''),
     },
     insider_info: {
-      flexibility:       String(r[28] || '不明'),
-      vacancy_trend:     String(r[29] || '不明'),
-      meeting_frequency: String(r[30] || '不明'),
+      flexibility:       String(r[31] || '不明'),
+      vacancy_trend:     String(r[32] || '不明'),
+      meeting_frequency: String(r[33] || '不明'),
       strengths,
-      staff_name:        String(r[26] || ''),
-      staff_note:        String(r[27] || ''),
-      notes:             String(r[33] || ''),
+      staff_name:        String(r[29] || ''),
+      staff_note:        String(r[30] || ''),
+      notes:             String(r[36] || ''),
     },
   };
 }
@@ -1160,15 +1075,23 @@ function excelRowToFacility(r) {
 // Load facilities (JSON fallback)
 // ──────────────────────────────
 async function loadFacilities() {
+  const cached = loadFacilitiesFromDevice();
+  if (cached) {
+    facilitiesData = cached.facilities.map(normalizeFacility);
+    updateDbBadge();
+    updateCacheInfo(cached.meta);
+    return;
+  }
+
   try {
     const res = await fetch('data/facilities.json');
     const json = await res.json();
-    facilitiesData = json.facilities;
+    facilitiesData = (json.facilities || []).map(normalizeFacility);
+    updateCacheInfo(null, 'json');
   } catch (e) {
     console.error('施設データの読み込みに失敗しました', e);
   } finally {
     updateDbBadge();
-    // パネルを自動展開（施設が0件のとき）
     if (facilitiesData.length === 0) {
       document.getElementById('db-body').classList.add('show');
       document.getElementById('db-toggle-icon').classList.add('open');
@@ -1177,24 +1100,12 @@ async function loadFacilities() {
 }
 
 // ──────────────────────────────
-// Step navigation
+// Validation
 // ──────────────────────────────
-function goStep(n) {
-  if (n === 2 && !validateStep1()) return;
-  for (let i = 1; i <= 4; i++) {
-    document.getElementById('step-' + i).style.display = (i === n) ? 'block' : 'none';
-    const si = document.getElementById('si-' + i);
-    si.className = 'step-item' + (i < n ? ' done' : i === n ? ' active' : '');
-  }
-  const labels = ['', '基本条件', '医療ケア', '身体・認知状況', '個人情報（任意）'];
-  document.getElementById('step-label').innerHTML = `<span>STEP ${n}</span> ${labels[n]}`;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function validateStep1() {
-  const level = document.querySelector('input[name="care_level"]:checked');
+function validate() {
+  const levels = document.querySelectorAll('input[name="care_level"]:checked');
   const areas = document.querySelectorAll('input[name="area"]:checked');
-  if (!level) { alert('要介護度を選択してください'); return false; }
+  if (levels.length === 0) { alert('要介護度・自立度を1つ以上選択してください'); return false; }
   if (areas.length === 0) { alert('希望エリアを少なくとも1つ選択してください'); return false; }
   return true;
 }
@@ -1204,13 +1115,13 @@ function validateStep1() {
 // ──────────────────────────────
 function collectFormData() {
   const d = {};
-  d.careLevel = parseInt(document.querySelector('input[name="care_level"]:checked')?.value || 0);
+  d.careLevelKeys = [...document.querySelectorAll('input[name="care_level"]:checked')].map(el => el.value);
   d.areas = [...document.querySelectorAll('input[name="area"]:checked')].map(el => el.value);
   d.seikohogo = document.querySelector('input[name="seikohogo"]:checked')?.value === 'yes';
   d.juushoArea = document.querySelector('input[name="juusho_area"]:checked')?.value || null;
   d.doukyo = document.querySelector('input[name="doukyo"]:checked')?.value || 'unknown';
   const ls = document.querySelector('input[name="limit_stage"]:checked')?.value;
-  d.limitStage = ls === 'none' ? null : parseInt(ls);
+  d.limitStage = ls === 'none' ? null : ls;
   d.medicalCare = [...document.querySelectorAll('input[name="medical"]:checked')].map(el => el.value);
   d.adl = document.querySelector('input[name="adl"]:checked')?.value || 'independent';
   d.dementia = document.querySelector('input[name="dementia"]:checked')?.value || 'none';
@@ -1238,7 +1149,7 @@ function matchFacilities(d, facilities) {
   return facilities
     .map(f => {
       // ── Hard filters ──
-      if (!f.care_levels.includes(d.careLevel)) return null;
+      if (!d.careLevelKeys.every(k => f.care_level_keys.includes(k))) return null;
       if (d.seikohogo && !f.economics.seikohogo) return null;
       if (d.limitStage && !f.economics.limit_stages.includes(d.limitStage)) return null;
       if (d.areas.length > 0 && !d.areas.includes(f.area)) return null;
@@ -1251,7 +1162,7 @@ function matchFacilities(d, facilities) {
         if (!key) continue;
         const val = f.medical_care[key];
         if (val === '×') return null; // hard block
-        if (val === '要相談') consultCare.push(care);
+        if (val === '要相談' || val === '不明' || !val) consultCare.push(care);
       }
 
       // Filter by preferred type (soft)
@@ -1294,6 +1205,7 @@ function matchFacilities(d, facilities) {
 // Run matching
 // ──────────────────────────────
 function runMatching() {
+  if (!validate()) return;
   formData = collectFormData();
   const results = matchFacilities(formData, facilitiesData);
 
@@ -1523,7 +1435,7 @@ function renderFacilityCard(f) {
     </div>
     <button class="facility-expand-btn" onclick="toggleDetail(${f.id})">詳細を見る ▾</button>
     <div class="facility-detail" id="fd-${f.id}">
-      <div class="detail-row"><span class="detail-label">対応要介護度</span><span class="detail-value">要介護${f.care_levels.join('・')}</span></div>
+      <div class="detail-row"><span class="detail-label">受入区分</span><span class="detail-value">${f.care_level_keys.map(careKeyLabel).join('・')}</span></div>
       <div class="detail-row"><span class="detail-label">部屋タイプ</span><span class="detail-value">${f.room_types.join('・')}</span></div>
       <div class="detail-row"><span class="detail-label">月額目安</span><span class="detail-value">${f.economics.monthly_fee_note}</span></div>
       <div class="detail-row"><span class="detail-label">判定会議</span><span class="detail-value">${f.insider_info.meeting_frequency}</span></div>
@@ -1555,9 +1467,16 @@ function toggleDetail(id) {
 function openModal(facilityId) {
   currentFacility = facilitiesData.find(f => f.id === facilityId);
   currentLetterType = 'tel';
-  document.querySelectorAll('.letter-type-btn').forEach((b, i) => {
-    b.classList.toggle('active', i === 0);
-  });
+  // テンプレートエディタを閉じてプレビューに戻す
+  document.getElementById('letter-preview').style.display = 'block';
+  document.getElementById('template-editor').classList.remove('show');
+  document.getElementById('modal-footer-preview').style.display = 'flex';
+  document.getElementById('modal-footer-tmpl').style.display = 'none';
+  document.getElementById('modal-title').textContent = '📝 紹介文を生成';
+  // タブ状態リセット
+  document.getElementById('tab-tel').classList.add('active');
+  document.getElementById('tab-fax').classList.remove('active');
+  document.getElementById('tab-tmpl').classList.remove('active');
   document.getElementById('letter-text').value = generateLetter('tel');
   document.getElementById('modal-overlay').classList.add('show');
 }
@@ -1576,20 +1495,82 @@ function switchLetterType(type, btn) {
   document.getElementById('letter-text').value = generateLetter(type);
 }
 
-function generateLetter(type) {
-  if (!currentFacility || !formData) return '';
-  const f = currentFacility;
-  const d = formData;
+// ──────────────────────────────
+// Template system
+// ──────────────────────────────
+const DEFAULT_TEMPLATES = {
+  tel: `【電話打診メモ】
+施設名：{{施設名}}
+TEL：{{TEL}}{{担当者行}}
 
+---トーク例---
+「お世話になっております。{{送信元}}と申します。
+現在、入所先をご相談させていただきたい方がいらっしゃいまして、お電話いたしました。
+少々お時間よろしいでしょうか。
+
+{{プロフィール}}
+{{特記事項}}
+現在の空き状況と、受け入れのご検討が可能かどうか、
+まずお伺いできますでしょうか。」
+{{医療ケア注意}}
+【確認事項】
+□ 空床状況
+□ 判定会議の日程
+□ 必要書類（主治医意見書など）
+□ 見学の可否{{住所地特例メモ}}`,
+
+  fax: `{{施設名}} 御中
+入所相談のご依頼
+
+お世話になっております。
+{{送信元}}と申します。
+
+この度、入所先をご相談させていただきたい方がございますので、
+ご検討のほどよろしくお願いいたします。
+
+【利用者概要】
+{{プロフィール}}
+
+【特記事項】
+{{特記事項本文}}
+{{認知症備考}}{{医療ケア注意}}{{住所地特例メモ}}
+ご確認いただけましたら、空き状況および受け入れの可否について
+お知らせいただけますと幸いです。
+
+何卒よろしくお願いいたします。
+
+---
+{{送信元}}
+FAX返信先：（        ）`
+};
+
+function getTemplate(type) {
+  return localStorage.getItem('tmpl_' + type) || DEFAULT_TEMPLATES[type];
+}
+
+function applyTemplate(tmpl, vars) {
+  return tmpl.replace(/\{\{([^}]+)\}\}/g, (_, key) => {
+    return key in vars ? vars[key] : '{{' + key + '}}';
+  });
+}
+
+function burdenStageLabel(s) {
+  const m = { '1': '第1段階', '2': '第2段階', '3-1': '第3-1段階', '3-2': '第3-2段階', '4': '第4段階' };
+  return m[s] || '';
+}
+
+function buildVars(f, d) {
+  const medicalCare = d.medicalCare || [];
+  const bpsd = d.bpsd || [];
   const profile = [
     d.age && d.gender ? `${d.age}歳 ${d.gender}` : '',
-    d.careLevel ? `要介護${d.careLevel}` : '',
+    d.careLevelKeys.map(careKeyLabel).join('・'),
     d.adl === 'wheelchair' ? 'ADL：車椅子移動' : d.adl === 'bedridden' ? 'ADL：寝たきり' : 'ADL：一部介助',
-    d.dementia === 'bpsd' ? `認知症あり（BPSD：${bpsdLabel(d.bpsd)}）` :
+    d.dementia === 'bpsd' ? `認知症あり（BPSD：${bpsdLabel(bpsd)}）` :
       d.dementia === 'mild' ? '認知症あり（BPSDなし、安定しています）' : '',
-    d.medicalCare.length > 0 ? `医療ケア：${d.medicalCare.map(k => medicalLabels[k]).join('、')}` : '医療ケア：特になし',
+    medicalCare.length > 0 ? `医療ケア：${medicalCare.map(k => medicalLabels[k]).join('、')}` : '医療ケア：特になし',
     d.seikohogo ? '生活保護受給中' : '',
-    d.limitStage ? `負担限度額：第${d.limitStage}段階` : '',
+    d.limitStage ? `負担限度額：${burdenStageLabel(d.limitStage)}` : '',
     d.guarantor === 'yes' ? '身元保証人：あり' : d.guarantor === 'no' ? '身元保証人：なし' : '',
   ].filter(Boolean);
 
@@ -1597,70 +1578,101 @@ function generateLetter(type) {
     ? `\n※ ${f.consultCare.map(c => medicalLabels[c]).join('・')}については施設の対応可否をご確認させてください。` : '';
 
   const sender = d.sender || '○○病院 相談員';
-  const staffLine = f.insider_info?.staff_name
-    ? `担当：${f.insider_info.staff_name}` : '';
+  const staffName = f.insider_info?.staff_name || '';
 
-  // 住所地特例・世帯分離メモ
   const juushoInfo2 = calcJuushoTokurei(f, d);
   const setaiInfo2  = calcSetaiBunri(f, d);
   let juushoMemo = '';
-  if (juushoInfo2 && juushoInfo2.level === 'alert') {
+  if (juushoInfo2?.level === 'alert') {
     juushoMemo += `\n【住所地特例】住民票（${d.juushoArea}）と施設エリア（${f.area}）が異なるため、住所地特例が適用されます。保護費の管轄は引き続き${d.juushoArea}福祉事務所となります。`;
-  } else if (juushoInfo2 && juushoInfo2.level === 'caution') {
+  } else if (juushoInfo2?.level === 'caution') {
     juushoMemo += `\n【住所地特例】${juushoInfo2.detail}`;
   }
-  if (setaiInfo2 && setaiInfo2.level === 'alert') {
+  if (setaiInfo2?.level === 'alert') {
     juushoMemo += `\n【世帯分離】同居家族がいるため、入所に際して世帯分離の手続きが必要になる場合があります。担当CWと事前に調整済みです（または調整予定）。`;
   }
 
-  if (type === 'tel') {
-    return `【電話打診メモ】
-施設名：${f.name}
-TEL：${f.tel}${staffLine ? '\n' + staffLine : ''}
+  return {
+    '施設名': f.name,
+    'TEL': f.tel,
+    'FAX': f.fax,
+    '担当者行': staffName ? '\n担当：' + staffName : '',
+    '送信元': sender,
+    'プロフィール': profile.join('\n'),
+    '特記事項': d.notes ? '【特記事項】\n' + d.notes : '',
+    '特記事項本文': d.notes || '特になし',
+    '医療ケア注意': consultNote,
+    '認知症備考': d.dementia === 'bpsd' ? '※ BPSDについては現在落ち着いており、スタッフとの関係も良好です。\n' : '',
+    '住所地特例メモ': juushoMemo,
+  };
+}
 
----トーク例---
-「お世話になっております。${sender}と申します。
-現在、入所先をご相談させていただきたい方がいらっしゃいまして、お電話いたしました。
-少々お時間よろしいでしょうか。
+function generateLetter(type) {
+  if (!currentFacility || !formData) return '';
+  const vars = buildVars(currentFacility, formData);
+  return applyTemplate(getTemplate(type), vars);
+}
 
-${profile.join('\n')}
+// ── Template editor ──
+let currentTmplTab = 'tel';
 
-${d.notes ? '【特記事項】\n' + d.notes + '\n' : ''}
-現在の空き状況と、受け入れのご検討が可能かどうか、
-まずお伺いできますでしょうか。」
-${consultNote}
+function openTemplateEditor() {
+  document.getElementById('letter-preview').style.display = 'none';
+  document.getElementById('template-editor').classList.add('show');
+  document.getElementById('modal-footer-preview').style.display = 'none';
+  document.getElementById('modal-footer-tmpl').style.display = 'flex';
+  document.getElementById('modal-title').textContent = '⚙ テンプレート編集';
+  document.getElementById('tab-tmpl').classList.add('active');
+  document.getElementById('tab-tel').classList.remove('active');
+  document.getElementById('tab-fax').classList.remove('active');
+  loadTmplTextarea(currentTmplTab);
+}
 
-【確認事項】
-□ 空床状況
-□ 判定会議の日程
-□ 必要書類（主治医意見書など）
-□ 見学の可否${juushoMemo ? '\n' + juushoMemo : ''}`;
-  } else {
-    return `${f.name} 御中
-入所相談のご依頼
+function closeTemplateEditor() {
+  document.getElementById('letter-preview').style.display = 'block';
+  document.getElementById('template-editor').classList.remove('show');
+  document.getElementById('modal-footer-preview').style.display = 'flex';
+  document.getElementById('modal-footer-tmpl').style.display = 'none';
+  document.getElementById('modal-title').textContent = '📝 紹介文を生成';
+  document.getElementById('tab-tmpl').classList.remove('active');
+  switchLetterType(currentLetterType, document.getElementById('tab-' + currentLetterType));
+}
 
-お世話になっております。
-${sender}と申します。
+function switchTmplTab(type, btn) {
+  currentTmplTab = type;
+  document.querySelectorAll('.tmpl-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  loadTmplTextarea(type);
+}
 
-この度、入所先をご相談させていただきたい方がございますので、
-ご検討のほどよろしくお願いいたします。
+function loadTmplTextarea(type) {
+  document.getElementById('tmpl-textarea').value = getTemplate(type);
+}
 
-【利用者概要】
-${profile.join('\n')}
-
-【特記事項】
-${d.notes || '特になし'}
-
-${d.dementia === 'bpsd' ? '※ BPSDについては現在落ち着いており、スタッフとの関係も良好です。\n' : ''}${consultNote ? consultNote + '\n' : ''}${juushoMemo ? juushoMemo + '\n' : ''}
-ご確認いただけましたら、空き状況および受け入れの可否について
-お知らせいただけますと幸いです。
-
-何卒よろしくお願いいたします。
-
----
-${sender}
-FAX返信先：（        ）`;
+function saveTemplate() {
+  localStorage.setItem('tmpl_' + currentTmplTab, document.getElementById('tmpl-textarea').value);
+  const msg = document.getElementById('tmpl-saved-msg');
+  msg.classList.add('show');
+  setTimeout(() => msg.classList.remove('show'), 2000);
+  // プレビューも更新
+  if (currentTmplTab === currentLetterType) {
+    document.getElementById('letter-text').value = generateLetter(currentLetterType);
   }
+}
+
+function resetTemplate() {
+  if (!confirm(`「${currentTmplTab === 'tel' ? '電話用メモ' : 'FAX/メール用'}」のテンプレートをデフォルトに戻しますか？`)) return;
+  localStorage.removeItem('tmpl_' + currentTmplTab);
+  loadTmplTextarea(currentTmplTab);
+}
+
+function insertPlaceholder(ph) {
+  const ta = document.getElementById('tmpl-textarea');
+  const start = ta.selectionStart;
+  const end = ta.selectionEnd;
+  ta.value = ta.value.slice(0, start) + ph + ta.value.slice(end);
+  ta.selectionStart = ta.selectionEnd = start + ph.length;
+  ta.focus();
 }
 
 function bpsdLabel(bpsd) {
@@ -1683,7 +1695,7 @@ function copyLetter() {
 function resetForm() {
   document.getElementById('results-section').style.display = 'none';
   document.getElementById('form-section').style.display = 'block';
-  goStep(1);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // 生保ラジオ切替 — 住所地特例フィールドの表示/非表示
@@ -1707,3 +1719,5 @@ loadFacilities();
 </script>
 </body>
 </html>
+
+
