@@ -480,6 +480,18 @@
       margin-left: 8px; opacity: 0; transition: opacity .3s;
     }
     .tmpl-saved-msg.show { opacity: 1; }
+
+    .db-cache-info {
+      font-size: 12px; color: var(--gray-600);
+      margin: 10px 0 8px; line-height: 1.5;
+    }
+    .db-cache-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .btn-ghost {
+      padding: 8px 12px; border: 1px solid var(--gray-300);
+      border-radius: 8px; background: #fff; color: var(--gray-700);
+      font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .btn-ghost:hover { background: var(--gray-100); }
   </style>
 </head>
 <body>
@@ -517,8 +529,13 @@
       </div>
       <input type="file" id="excel-file-input" accept=".xlsx,.xls" onchange="onFileSelected(event)">
 
+      <p class="db-cache-info" id="db-cache-info"></p>
+      <div class="db-cache-actions">
+        <button type="button" class="btn-ghost" onclick="clearFacilitiesCache()">端末の保存データを削除</button>
+      </div>
       <p class="db-hint">
-        Excelテンプレート:
+        Excelを一度読み込むとこの端末に保存され、次回から自動で使われます。データ更新時は新しいExcelをアップロードしてください。<br>
+        テンプレート:
         <a href="施設データ.xlsx" download>施設データ.xlsx をダウンロード</a>
       </p>
     </div>
@@ -805,6 +822,9 @@ let currentFacility = null;
 let currentLetterType = 'tel';
 let formData = {};
 
+const FACILITIES_STORAGE_KEY = 'soudanin_facilities_v1';
+const FACILITIES_META_KEY = 'soudanin_facilities_meta_v1';
+
 // ──────────────────────────────
 // DB Banner
 // ──────────────────────────────
@@ -824,6 +844,69 @@ function updateDbBadge() {
     badge.textContent = facilitiesData.length + '施設';
     badge.classList.remove('empty');
   }
+}
+
+function normalizeFacility(f) {
+  return {
+    ...f,
+    care_level_keys: f.care_level_keys || (f.care_levels || []).map(String),
+    economics: {
+      ...f.economics,
+      limit_stages: normalizeLimitStages(f.economics?.limit_stages || []),
+    },
+  };
+}
+
+function formatCacheDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleString('ja-JP', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+}
+
+function updateCacheInfo(meta, source) {
+  const el = document.getElementById('db-cache-info');
+  if (!el) return;
+  if (meta?.savedAt) {
+    const src = meta.fileName ? `「${meta.fileName}」` : 'Excel';
+    el.textContent = `この端末に保存済み: ${meta.count || facilitiesData.length}件（${src}・${formatCacheDate(meta.savedAt)}）`;
+  } else if (source === 'json') {
+    el.textContent = '同梱の facilities.json を読み込み中（動作確認用）。本番はExcelをアップロードしてください。';
+  } else {
+    el.textContent = '';
+  }
+}
+
+function saveFacilitiesToDevice(facilities, meta) {
+  try {
+    localStorage.setItem(FACILITIES_STORAGE_KEY, JSON.stringify(facilities));
+    localStorage.setItem(FACILITIES_META_KEY, JSON.stringify(meta));
+    updateCacheInfo(meta);
+  } catch (e) {
+    console.warn('端末への保存に失敗しました（容量超過の可能性）', e);
+    alert('データは読み込めましたが、この端末への保存に失敗しました。ブラウザの保存容量を確認してください。');
+  }
+}
+
+function loadFacilitiesFromDevice() {
+  try {
+    const raw = localStorage.getItem(FACILITIES_STORAGE_KEY);
+    if (!raw) return null;
+    const facilities = JSON.parse(raw);
+    const meta = JSON.parse(localStorage.getItem(FACILITIES_META_KEY) || 'null');
+    if (!Array.isArray(facilities) || facilities.length === 0) return null;
+    return { facilities, meta };
+  } catch (e) {
+    console.warn('端末の保存データの読み込みに失敗', e);
+    return null;
+  }
+}
+
+function clearFacilitiesCache() {
+  if (!confirm('この端末に保存した施設データを削除します。よろしいですか？')) return;
+  localStorage.removeItem(FACILITIES_STORAGE_KEY);
+  localStorage.removeItem(FACILITIES_META_KEY);
+  loadFacilities();
 }
 
 // ──────────────────────────────
@@ -870,11 +953,17 @@ function processExcelFile(file) {
 
       if (parsed.length === 0) throw new Error('有効なデータが見つかりませんでした。');
 
-      facilitiesData = parsed;
+      facilitiesData = parsed.map(normalizeFacility);
+      const meta = {
+        fileName: file.name,
+        savedAt: new Date().toISOString(),
+        count: parsed.length,
+      };
+      saveFacilitiesToDevice(facilitiesData, meta);
       updateDbBadge();
 
       document.getElementById('db-status-ok-text').textContent =
-        `${parsed.length}件の施設データを読み込みました（${file.name}）`;
+        `${parsed.length}件を読み込み、この端末に保存しました（${file.name}）`;
       okEl.classList.add('show');
 
       // Auto-close panel after success
@@ -986,22 +1075,23 @@ function excelRowToFacility(r) {
 // Load facilities (JSON fallback)
 // ──────────────────────────────
 async function loadFacilities() {
+  const cached = loadFacilitiesFromDevice();
+  if (cached) {
+    facilitiesData = cached.facilities.map(normalizeFacility);
+    updateDbBadge();
+    updateCacheInfo(cached.meta);
+    return;
+  }
+
   try {
     const res = await fetch('data/facilities.json');
     const json = await res.json();
-    facilitiesData = json.facilities.map(f => ({
-      ...f,
-      care_level_keys: f.care_level_keys || (f.care_levels || []).map(String),
-      economics: {
-        ...f.economics,
-        limit_stages: normalizeLimitStages(f.economics.limit_stages || []),
-      },
-    }));
+    facilitiesData = (json.facilities || []).map(normalizeFacility);
+    updateCacheInfo(null, 'json');
   } catch (e) {
     console.error('施設データの読み込みに失敗しました', e);
   } finally {
     updateDbBadge();
-    // パネルを自動展開（施設が0件のとき）
     if (facilitiesData.length === 0) {
       document.getElementById('db-body').classList.add('show');
       document.getElementById('db-toggle-icon').classList.add('open');
