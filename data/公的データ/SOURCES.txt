@@ -1,0 +1,49 @@
+# ダウンロード済みファイルの取得元（公的・準公的）
+
+取得日: 2026-05-10（作業実行時点）
+
+## 1. 厚生労働省 — 介護サービス情報公表オープンデータ（2025年12月末時点・出力日2026年1月14日付サイト記載）
+
+一覧ページ:
+https://www.mhlw.go.jp/stf/kaigo-kouhyou_opendata.html
+
+保存フォルダ:
+data/公的データ/厚生労働省_介護サービス情報公表オープンデータ_2025年12月末/
+
+取得したCSV（UTF-8）:
+- 510_介護老人福祉施設.csv（https://www.mhlw.go.jp/content/12300000/jigyosho_510.csv）
+- 520_介護老人保健施設.csv（https://www.mhlw.go.jp/content/12300000/jigyosho_520.csv）
+- 550_介護医療院.csv（https://www.mhlw.go.jp/content/12300000/jigyosho_550.csv）
+- 331_特定施設入居者生活介護_有料老人ホーム.csv（https://www.mhlw.go.jp/content/12300000/jigyosho_331.csv）
+- 332_特定施設入居者生活介護_軽費老人ホーム.csv（https://www.mhlw.go.jp/content/12300000/jigyosho_332.csv）
+- 334_特定施設入居者生活介護_サービス付き高齢者向け住宅.csv（https://www.mhlw.go.jp/content/12300000/jigyosho_334.csv）
+- 540_地域密着型介護老人福祉施設入所者生活介護.csv（https://www.mhlw.go.jp/content/12300000/jigyosho_540.csv）
+
+利用時は同ページの「利用規約」および厚労省の案内に従ってください。
+
+## 3. 介護サービス情報公表システム（Web・スクレイピング取得）
+
+検索・詳細ページ:
+https://www.kaigokensaku.mhlw.go.jp/
+
+鹿児島県トップ:
+https://www.kaigokensaku.mhlw.go.jp/46/
+
+取得スクリプト:
+scripts/fetch_kaigo_kouhyou.py
+scripts/kaigo_kouhyou_client.py
+
+キャッシュ出力先:
+data/公的データ/kaigo_kouhyou_cache/
+
+※ 要介護度別の数値は「入所者実績」であり受入可能範囲の公式宣言ではない。利用規約・サーバ負荷に配慮し --delay で間隔を空けること。
+
+## 2. 鹿児島県 — 介護保険指定事業所一覧（ページ記載: 令和7年10月1日現在）
+
+一覧ページ:
+http://www.pref.kagoshima.jp/ae05/kenko-fukushi/koreisya/zigyosya/list.html
+
+保存フォルダ:
+data/公的データ/鹿児島県_介護保険指定事業所一覧_R07.10.01/
+
+ファイル名は一覧のアンカーテキストに基づき付与（中身は各文書の通り）。

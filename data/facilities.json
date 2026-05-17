@@ -9,7 +9,7 @@
       "address": "鹿児島市吉野町1234",
       "tel": "099-xxx-0001",
       "fax": "099-xxx-0002",
-      "care_levels": [3, 4, 5],
+      "care_level_keys": ["3", "4", "5"],
       "room_types": ["個室", "多床室"],
       "medical_care": {
         "insulin": "○",
@@ -22,7 +22,7 @@
       },
       "economics": {
         "seikohogo": true,
-        "limit_stages": [1, 2, 3, 4],
+        "limit_stages": ["1", "2", "3-1", "3-2", "4"],
         "monthly_fee_note": "第1段階：約3万円、第2段階：約4万円"
       },
       "insider_info": {
@@ -42,7 +42,7 @@
       "address": "霧島市国分中央5678",
       "tel": "0995-xxx-0003",
       "fax": "0995-xxx-0004",
-      "care_levels": [3, 4, 5],
+      "care_level_keys": ["3", "4", "5"],
       "room_types": ["個室"],
       "medical_care": {
         "insulin": "○",
@@ -55,7 +55,7 @@
       },
       "economics": {
         "seikohogo": true,
-        "limit_stages": [1, 2, 3, 4],
+        "limit_stages": ["1", "2", "3-1", "3-2", "4"],
         "monthly_fee_note": "第1段階：約3万円"
       },
       "insider_info": {
@@ -75,7 +75,7 @@
       "address": "姶良市加治木町9012",
       "tel": "0995-xxx-0005",
       "fax": "0995-xxx-0006",
-      "care_levels": [1, 2, 3, 4, 5],
+      "care_level_keys": ["j1", "j2", "1", "2", "3", "4", "5"],
       "room_types": ["個室", "多床室"],
       "medical_care": {
         "insulin": "○",
@@ -88,7 +88,7 @@
       },
       "economics": {
         "seikohogo": false,
-        "limit_stages": [2, 3, 4],
+        "limit_stages": ["2", "3-1", "3-2", "4"],
         "monthly_fee_note": "第2段階から対応可"
       },
       "insider_info": {
@@ -108,7 +108,7 @@
       "address": "南さつま市加世田1357",
       "tel": "0993-xxx-0007",
       "fax": "0993-xxx-0008",
-      "care_levels": [3, 4, 5],
+      "care_level_keys": ["3", "4", "5"],
       "room_types": ["個室", "多床室"],
       "medical_care": {
         "insulin": "○",
@@ -121,7 +121,7 @@
       },
       "economics": {
         "seikohogo": true,
-        "limit_stages": [1, 2, 3, 4],
+        "limit_stages": ["1", "2", "3-1", "3-2", "4"],
         "monthly_fee_note": "第1段階：約3.5万円"
       },
       "insider_info": {
@@ -141,7 +141,7 @@
       "address": "鹿児島市与次郎2468",
       "tel": "099-xxx-0009",
       "fax": "099-xxx-0010",
-      "care_levels": [1, 2, 3, 4],
+      "care_level_keys": ["j1", "j2", "1", "2", "3", "4"],
       "room_types": ["個室"],
       "medical_care": {
         "insulin": "○",
@@ -154,7 +154,7 @@
       },
       "economics": {
         "seikohogo": false,
-        "limit_stages": [3, 4],
+        "limit_stages": ["3-1", "3-2", "4"],
         "monthly_fee_note": "月額15〜20万円程度（全込み）"
       },
       "insider_info": {
@@ -174,7 +174,7 @@
       "address": "鹿屋市寿町3579",
       "tel": "0994-xxx-0011",
       "fax": "0994-xxx-0012",
-      "care_levels": [3, 4, 5],
+      "care_level_keys": ["3", "4", "5"],
       "room_types": ["多床室"],
       "medical_care": {
         "insulin": "○",
@@ -187,7 +187,7 @@
       },
       "economics": {
         "seikohogo": true,
-        "limit_stages": [1, 2, 3, 4],
+        "limit_stages": ["1", "2", "3-1", "3-2", "4"],
         "monthly_fee_note": "第1段階：約2.5万円"
       },
       "insider_info": {
@@ -207,7 +207,7 @@
       "address": "薩摩川内市隈之城町2468",
       "tel": "0996-xxx-0013",
       "fax": "0996-xxx-0014",
-      "care_levels": [2, 3, 4, 5],
+      "care_level_keys": ["2", "3", "4", "5"],
       "room_types": ["個室"],
       "medical_care": {
         "insulin": "○",
@@ -220,7 +220,7 @@
       },
       "economics": {
         "seikohogo": false,
-        "limit_stages": [3, 4],
+        "limit_stages": ["3-1", "3-2", "4"],
         "monthly_fee_note": "月額16〜22万円"
       },
       "insider_info": {
@@ -240,7 +240,7 @@
       "address": "鹿児島市和田1-23-4",
       "tel": "099-xxx-0015",
       "fax": "099-xxx-0016",
-      "care_levels": [1, 2, 3, 4, 5],
+      "care_level_keys": ["j1", "j2", "1", "2", "3", "4", "5"],
       "room_types": ["個室", "多床室"],
       "medical_care": {
         "insulin": "○",
@@ -253,7 +253,7 @@
       },
       "economics": {
         "seikohogo": true,
-        "limit_stages": [1, 2, 3, 4],
+        "limit_stages": ["1", "2", "3-1", "3-2", "4"],
         "monthly_fee_note": "第1段階：約3万円"
       },
       "insider_info": {
