@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - master
-      - cursor/kouhyou-medical-v2-data
   workflow_dispatch:
 
 permissions:
